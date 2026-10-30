@@ -1,0 +1,303 @@
+/* ===== Reset básico ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* ===== Encabezado ===== */
+.encabezado { text-align: center; margin-bottom: 24px; }
+.encabezado h1 { font-size: 1.6rem; margin-bottom: 8px; }
+.subtitulo { color: #666; font-size: 0.95rem; }
+
+/* ===== Contenedor principal ===== */
+.contenedor {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Formulario ===== */
+.titulo-seccion { font-size: 1.1rem; margin-bottom: 6px; }
+.ayuda { color: #666; font-size: 0.9rem; margin-bottom: 16px; }
+.lista-textos { display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px; }
+
+.bloque-texto {
+  border: 1px solid #e0e0e0; border-radius: 6px; padding: 14px;
+  background: #fafafa; transition: border-color 0.2s, background 0.2s;
+}
+.bloque-texto.bloque-error { border-color: #d9534f; background: #fdf3f2; }
+.bloque-encabezado { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.bloque-numero { font-weight: 600; font-size: 0.9rem; color: #555; }
+.boton-eliminar {
+  background: none; border: none; color: #c0392b; cursor: pointer;
+  font-size: 1rem; padding: 4px 8px; border-radius: 4px;
+}
+.boton-eliminar:hover { background: #f7e1df; }
+
+.campo { display: block; margin-bottom: 10px; }
+.campo:last-child { margin-bottom: 0; }
+.campo-etiqueta { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 4px; color: #444; }
+.campo-texto, .campo-cita {
+  width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px;
+  font-family: inherit; font-size: 0.95rem; background: #fff; resize: vertical;
+}
+.campo-texto:focus, .campo-cita:focus {
+  outline: none; border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
+}
+.campo-error { border-color: #d9534f; background: #fff5f5; }
+
+.acciones-textos { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.contador { font-size: 0.85rem; color: #666; }
+
+/* ===== Configuración ===== */
+.seccion-formulario,
+.seccion-configuracion {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+.seccion-configuracion:last-of-type { border-bottom: none; }
+
+.fila-config {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.fila-config label,
+.label-grupo {
+  font-size: 0.9rem;
+  color: #444;
+  min-width: 110px;
+}
+.fila-config select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 0.9rem;
+  min-width: 180px;
+}
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ===== Botones ===== */
+.acciones-principales {
+  display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.acciones-impresion {
+  display: flex; justify-content: center; gap: 12px; margin-top: 16px; flex-wrap: wrap;
+}
+.boton {
+  border: none; border-radius: 6px; padding: 10px 18px;
+  font-size: 0.95rem; font-family: inherit; cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+.boton:disabled { opacity: 0.5; cursor: not-allowed; }
+.boton-secundario { background: #eef3fb; color: #2b5a9b; }
+.boton-secundario:hover:not(:disabled) { background: #dde8f7; }
+.boton-principal { background: #4a90e2; color: #fff; padding: 12px 28px; font-size: 1rem; }
+.boton-principal:hover:not(:disabled) { background: #3a7bc8; }
+
+.nota-impresion {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.mensaje { margin-top: 8px; padding: 10px 12px; border-radius: 6px; font-size: 0.9rem; display: none; }
+.mensaje:not(:empty) { display: block; }
+.mensaje-error { background: #fdf3f2; color: #a94442; border: 1px solid #f2c8c5; }
+.mensaje-ok { background: #eefaf1; color: #2b7a3d; border: 1px solid #c6ebd0; }
+
+/* ===== Vista previa ===== */
+.seccion-vista-previa {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid #e0e0e0;
+}
+.vista-previa-envoltorio {
+  margin-top: 8px; padding: 16px; background: #f0f0f0; border-radius: 6px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.vista-previa {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 200px;
+  width: 100%;
+}
+.vista-vacia { color: #888; font-size: 0.9rem; align-self: center; }
+
+/* ===== Hoja carta ===== */
+.hoja-carta {
+  width: 21.59cm;
+  height: 27.94cm;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 10cm 10cm;
+  grid-template-rows: 13cm 13cm;
+  gap: 0.5cm;
+  padding: 0.72cm 0.545cm;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Tarjeta ===== */
+.tarjeta {
+  width: 10cm;
+  height: 13cm;
+  position: relative;
+  overflow: hidden;
+  border: 1px dashed #c8c8c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9cm;
+}
+.tarjeta-decoraciones {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.decoracion-esquina {
+  position: absolute;
+  width: 4.5cm;
+  height: 4.5cm;
+  opacity: 0.85;
+  transform-origin: center;
+}
+.tarjeta-texto {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  text-align: center;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4cm;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.tarjeta-versiculo { font-family: Georgia, "Times New Roman", serif; }
+.tarjeta-cita {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 0.85em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  body { padding: 12px; }
+  .contenedor { padding: 16px; border-radius: 6px; }
+  .encabezado h1 { font-size: 1.3rem; }
+  .fila-config { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .fila-config label,
+  .label-grupo { min-width: unset; }
+  .fila-config select { width: 100%; min-width: unset; }
+  .acciones-principales,
+  .acciones-impresion { flex-direction: column; }
+  .boton { width: 100%; }
+  .acciones-textos { flex-direction: column; gap: 8px; align-items: stretch; }
+  .vista-previa-envoltorio { padding: 8px; }
+}
+
+/* ===== Impresión ===== */
+@media print {
+  @page {
+    size: 21.59cm 27.94cm;
+    margin: 0;
+  }
+  
+  /* Forzar que todo el fondo sea blanco y no haya márgenes */
+  html, body {
+    background: #fff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Ocultar TODO excepto el contenedor de la hoja */
+  .encabezado,
+  .seccion-formulario,
+  .seccion-configuracion,
+  .acciones-principales,
+  .acciones-impresion,
+  .nota-impresion,
+  .mensaje,
+  .vista-vacia,
+  .seccion-vista-previa > .titulo-seccion, /* Oculta el H2 */
+  .seccion-vista-previa > .ayuda {          /* Oculta el P */
+    display: none !important;
+  }
+
+  /* Limpiar contenedores para que la hoja fluya sin obstáculos */
+  .contenedor {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .seccion-vista-previa {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .vista-previa-envoltorio {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .vista-previa { 
+    display: block !important; 
+    min-height: 0 !important; 
+    width: 100% !important;
+  }
+
+  /* La hoja debe ocupar exactamente el tamaño carta sin sombras ni escalas */
+  .hoja-carta {
+    box-shadow: none !important;
+    transform: none !important;
+    margin: 0 auto !important; /* Centrada si el navegador da un poco de margen */
+    width: 21.59cm !important;
+    height: 27.94cm !important;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Borde gris claro y sólido para cada tarjeta */
+  .tarjeta { 
+    border: 1px solid #cccccc !important; 
+  }
+}

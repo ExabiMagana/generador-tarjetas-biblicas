@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Tarjetas Bíblicas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Generador de Tarjetas Bíblicas</h1>
+    <p class="subtitulo">Crea tarjetas con versículos listas para imprimir en hoja carta.</p>
+  </header>
+
+  <main class="contenedor">
+
+    <section class="seccion-formulario">
+      <h2 class="titulo-seccion">1. Textos bíblicos</h2>
+      <p class="ayuda">Introduce entre 1 y 4 textos. Cada uno debe tener su cita.</p>
+
+      <div id="lista-textos" class="lista-textos"></div>
+
+      <div class="acciones-textos">
+        <button type="button" id="btn-agregar" class="boton boton-secundario">
+          + Agregar otro texto
+        </button>
+        <span id="contador-textos" class="contador">1 de 4</span>
+      </div>
+
+      <div id="mensaje-validacion" class="mensaje" role="alert"></div>
+    </section>
+
+    <section class="seccion-configuracion">
+      <h2 class="titulo-seccion">2. Estilo de decoración</h2>
+
+      <div class="fila-config">
+        <label for="sel-estilo">Estilo:</label>
+        <select id="sel-estilo">
+          <option value="abstracto">Abstracto</option>
+          <option value="ilustrado">Ilustrado</option>
+          <option value="aleatorio">Aleatorio</option>
+        </select>
+      </div>
+
+      <div class="fila-config" id="fila-variante">
+        <label for="sel-variante">Variante ilustrada:</label>
+        <select id="sel-variante">
+          <option value="rama">Rama</option>
+          <option value="flores">Flores</option>
+          <option value="lineas">Líneas botánicas</option>
+          <option value="mixta">Mixta</option>
+          <option value="corazones">Corazones</option>
+          <option value="aleatoria">Aleatoria</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="seccion-configuracion">
+      <h2 class="titulo-seccion">3. Colores</h2>
+
+      <div class="fila-config">
+        <span class="label-grupo">Modo de color:</span>
+        <label class="radio">
+          <input type="radio" name="modo-color" value="iguales" checked>
+          Iguales en las 4 tarjetas
+        </label>
+        <label class="radio">
+          <input type="radio" name="modo-color" value="diferentes">
+          Diferentes por tarjeta
+        </label>
+      </div>
+
+      <div class="fila-config">
+        <label for="sel-paleta">Paleta:</label>
+        <select id="sel-paleta">
+          <option value="azulCoral">Azul y coral</option>
+          <option value="verdeBeige">Verde suave y beige</option>
+          <option value="lilaRosa">Lila y rosa</option>
+          <option value="celesteTerracota">Celeste y terracota</option>
+          <option value="azulOscuroClaro">Azul oscuro y azul claro</option>
+          <option value="aleatoria">Aleatoria</option>
+        </select>
+      </div>
+
+      <div class="fila-config">
+        <label for="sel-fondo">Fondo:</label>
+        <select id="sel-fondo">
+          <option value="blanco" selected>Blanco</option>
+          <option value="crema">Crema</option>
+          <option value="celesteClaro">Celeste muy claro</option>
+          <option value="rosaSuave">Rosa suave</option>
+          <option value="aleatorio">Aleatorio</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="acciones-principales">
+      <button type="button" id="btn-validar" class="boton boton-principal">
+        Generar tarjetas
+      </button>
+      <button type="button" id="btn-regenerar" class="boton boton-secundario" disabled>
+        Regenerar decoraciones
+      </button>
+    </div>
+
+    <section class="seccion-vista-previa">
+      <h2 class="titulo-seccion">Vista previa — Hoja carta</h2>
+      <p class="ayuda">
+        Cuatro tarjetas de 10 × 13 cm en una hoja de 21,59 × 27,94 cm.
+      </p>
+
+      <div class="vista-previa-envoltorio">
+        <div id="vista-previa" class="vista-previa">
+          <p class="vista-vacia">Aún no hay tarjetas generadas.</p>
+        </div>
+      </div>
+
+      <!-- ===== Acciones de impresión (Etapa 9) ===== -->
+      <div class="acciones-impresion">
+        <button type="button" id="btn-imprimir" class="boton boton-principal" disabled>
+          Imprimir
+        </button>
+        <button type="button" id="btn-pdf" class="boton boton-principal" disabled>
+          Descargar PDF
+        </button>
+      </div>
+      <p class="nota-impresion">
+        Consejo: al imprimir o guardar como PDF, elige <strong>escala 100 %</strong>
+        y <strong>tamaño Carta</strong> para conservar las dimensiones exactas.
+        Para guardar como PDF, selecciona <em>"Guardar como PDF"</em> en el destino de impresión.
+      </p>
+    </section>
+
+  </main>
+
+  <script src="js/tarjetas.js"></script>
+  <script src="js/decoraciones.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
